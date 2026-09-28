@@ -1,0 +1,2056 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fffaf5;
+    color: #28204f;
+    line-height: 1.6;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =====================================================
+   VARIÁVEIS
+===================================================== */
+
+:root {
+    --roxo: #30245f;
+    --roxo-claro: #4d3b91;
+
+    --lilas: #eee9ff;
+
+    --verde: #9be5c7;
+    --verde-claro: #dff8ed;
+
+    --creme: #fffaf5;
+    --branco: #ffffff;
+
+    --texto: #28204f;
+    --texto-claro: #655f75;
+
+    --borda: #e7e1ef;
+
+    --sombra:
+        0 15px 40px rgba(48, 36, 95, 0.10);
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container {
+    width: min(1120px, 90%);
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background-color: rgba(255, 250, 245, 0.96);
+
+    border-bottom: 1px solid var(--borda);
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.cabecalho-conteudo {
+    min-height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* LOGO */
+
+.logo-texto {
+    font-size: 1.35rem;
+    font-weight: 800;
+
+    color: var(--roxo);
+
+    white-space: nowrap;
+
+    transition: 0.3s;
+}
+
+.logo-texto:hover {
+    opacity: 0.75;
+}
+
+
+/* MENU */
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 30px;
+
+    margin-left: auto;
+}
+
+.menu a {
+    position: relative;
+
+    font-size: 0.98rem;
+    font-weight: 600;
+
+    color: var(--texto);
+
+    transition: color 0.3s ease;
+}
+
+.menu a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background-color: var(--roxo);
+
+    transition: width 0.3s ease;
+}
+
+.menu a:hover {
+    color: var(--roxo-claro);
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+
+/* BOTÃO TEMA */
+
+.botao-tema {
+    border: 1px solid var(--roxo);
+
+    background-color: transparent;
+    color: var(--roxo);
+
+    padding: 10px 15px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    transition: all 0.3s ease;
+
+    white-space: nowrap;
+}
+
+.botao-tema:hover {
+    background-color: var(--roxo);
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   HERO — PÁGINA INICIAL
+===================================================== */
+
+.hero {
+    min-height: calc(100vh - 82px);
+
+    display: flex;
+    align-items: center;
+
+    padding: 80px 0;
+
+    background:
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(155, 229, 199, 0.35),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #fffaf5 0%,
+            #f5f0ff 100%
+        );
+}
+
+.hero-conteudo {
+    display: grid;
+
+    grid-template-columns: 1.05fr 0.95fr;
+
+    align-items: center;
+
+    gap: 65px;
+}
+
+
+/* TEXTO DO HERO */
+
+.hero-texto {
+    max-width: 600px;
+}
+
+.pequeno-titulo {
+    display: inline-block;
+
+    color: var(--roxo-claro);
+
+    font-size: 0.82rem;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 6vw, 5.2rem);
+
+    line-height: 1.03;
+
+    letter-spacing: -2px;
+
+    color: var(--roxo);
+
+    margin-bottom: 28px;
+}
+
+.hero h1 span {
+    display: block;
+    color: #65cda6;
+}
+
+.hero p {
+    max-width: 570px;
+
+    font-size: 1.15rem;
+
+    color: var(--texto-claro);
+
+    margin-bottom: 35px;
+}
+
+
+/* BOTÕES DO HERO */
+
+.hero-botoes {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.botao {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 52px;
+
+    padding: 0 25px;
+
+    border-radius: 12px;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.botao:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(48, 36, 95, 0.15);
+}
+
+.botao-principal {
+    background-color: var(--roxo);
+    color: white;
+}
+
+.botao-principal:hover {
+    background-color: var(--roxo-claro);
+}
+
+.botao-secundario {
+    background-color: var(--verde);
+    color: var(--roxo);
+}
+
+.botao-secundario:hover {
+    background-color: #83dbb7;
+}
+
+
+/* IMAGEM DO HERO */
+
+.hero-imagem {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-moldura {
+    width: min(100%, 500px);
+
+    aspect-ratio: 1 / 1;
+
+    padding: 22px;
+
+    background-color: white;
+
+    border-radius: 30px;
+
+    box-shadow: var(--sombra);
+
+    transform: rotate(2deg);
+
+    transition: transform 0.3s ease;
+}
+
+.imagem-moldura:hover {
+    transform: rotate(0deg) translateY(-5px);
+}
+
+.imagem-moldura img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+}
+
+
+/* =====================================================
+   SEÇÕES
+===================================================== */
+
+.secao {
+    padding: 110px 0;
+}
+
+.secao-destaque {
+    background-color: #f2edff;
+}
+
+.titulo-secao {
+    max-width: 700px;
+
+    margin: 0 auto 55px;
+
+    text-align: center;
+}
+
+.titulo-secao > span {
+    color: var(--roxo-claro);
+
+    font-size: 0.8rem;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.titulo-secao h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+
+    line-height: 1.15;
+
+    color: var(--roxo);
+
+    margin: 12px 0 18px;
+}
+
+.titulo-secao p {
+    color: var(--texto-claro);
+    font-size: 1.05rem;
+}
+
+
+/* =====================================================
+   CARTÕES — O CLUBE
+===================================================== */
+
+.cartoes {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.cartao {
+    padding: 35px;
+
+    background-color: white;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(48, 36, 95, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.cartao:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 18px 35px rgba(48, 36, 95, 0.12);
+}
+
+.icone-cartao {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--verde-claro);
+
+    border-radius: 15px;
+
+    font-size: 1.6rem;
+
+    margin-bottom: 22px;
+}
+
+.cartao h3 {
+    color: var(--roxo);
+
+    margin-bottom: 12px;
+
+    font-size: 1.3rem;
+}
+
+.cartao p {
+    color: var(--texto-claro);
+    font-size: 0.98rem;
+}
+
+
+/* =====================================================
+   CARTÕES DE LEITURA — PÁGINA INICIAL
+===================================================== */
+
+.livros {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.livro {
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+
+    background-color: white;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    border: 1px solid var(--borda);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.livro:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 15px 30px rgba(48, 36, 95, 0.10);
+}
+
+.livro-capa {
+    flex-shrink: 0;
+
+    width: 120px;
+    height: 160px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dcd3ff,
+            #a99bdf
+        );
+
+    font-size: 3rem;
+}
+
+.livro-info span {
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    color: var(--roxo-claro);
+}
+
+.livro-info h3 {
+    color: var(--roxo);
+
+    margin: 7px 0 10px;
+
+    font-size: 1.35rem;
+}
+
+.livro-info p {
+    color: var(--texto-claro);
+}
+
+.link-card {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    color: var(--roxo-claro);
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    transition: color 0.3s ease;
+}
+
+.livro:hover .link-card {
+    color: #65cda6;
+}
+
+
+/* =====================================================
+   ENCONTROS
+===================================================== */
+
+.encontros-conteudo {
+    display: grid;
+
+    grid-template-columns: 1fr 0.75fr;
+
+    align-items: center;
+
+    gap: 80px;
+}
+
+.encontros-texto h2 {
+    color: var(--roxo);
+
+    font-size: clamp(2.3rem, 4vw, 3.5rem);
+
+    line-height: 1.1;
+
+    margin: 10px 0 25px;
+}
+
+.encontros-texto h2 span {
+    color: #65cda6;
+}
+
+.encontros-texto p {
+    color: var(--texto-claro);
+
+    margin-bottom: 15px;
+
+    font-size: 1.05rem;
+}
+
+.encontro-card {
+    padding: 45px;
+
+    background-color: var(--roxo);
+
+    color: white;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow: var(--sombra);
+}
+
+.encontro-icone {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.encontro-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.encontro-card p {
+    color: #e7e2fa;
+}
+
+
+/* =====================================================
+   CONTATO
+===================================================== */
+
+.contato {
+    background-color: var(--verde-claro);
+}
+
+.contato-cartoes {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.contato-item {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 22px;
+
+    background-color: white;
+
+    border-radius: 15px;
+
+    border: 1px solid var(--borda);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.contato-item:hover {
+    transform: translateY(-5px);
+
+    box-shadow: var(--sombra);
+}
+
+.contato-item > span {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--lilas);
+
+    border-radius: 12px;
+
+    font-size: 1.3rem;
+}
+
+.contato-item strong {
+    display: block;
+
+    color: var(--roxo);
+
+    margin-bottom: 3px;
+}
+
+.contato-item small {
+    color: var(--texto-claro);
+}
+
+
+/* =====================================================
+   RODAPÉ
+===================================================== */
+
+.rodape {
+    background-color: var(--roxo);
+
+    color: white;
+
+    padding: 30px 0;
+}
+
+.rodape-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.rodape p {
+    font-size: 0.9rem;
+    color: #ddd8ef;
+}
+
+
+/* =====================================================
+   PÁGINA DE LEITURAS — TÍTULO
+===================================================== */
+
+.pagina-titulo {
+    padding: 100px 0 80px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(155, 229, 199, 0.30),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #fffaf5 0%,
+            #f5f0ff 100%
+        );
+}
+
+.pagina-titulo h1 {
+    max-width: 800px;
+
+    margin: 15px auto 25px;
+
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+    line-height: 1.08;
+
+    letter-spacing: -1.5px;
+
+    color: var(--roxo);
+}
+
+.pagina-titulo h1 span {
+    display: block;
+    color: #65cda6;
+}
+
+.pagina-titulo p {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    color: var(--texto-claro);
+
+    font-size: 1.1rem;
+}
+
+
+/* =====================================================
+   LIVRO DO MÊS — CAPA PADRONIZADA
+===================================================== */
+
+.livro-detalhado {
+    display: grid;
+
+    grid-template-columns: 220px 1fr;
+
+    align-items: center;
+
+    gap: 45px;
+
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    padding: 40px;
+
+    background-color: white;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 12px 35px rgba(48, 36, 95, 0.08);
+}
+
+
+/* TAMANHO DA CAPA DO LIVRO DO MÊS */
+
+.capa-grande {
+    width: 220px;
+    height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    background-color: #eee9ff;
+}
+
+
+/* IMAGEM DA CAPA DO LIVRO DO MÊS */
+
+.capa-grande img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+}
+
+
+.etiqueta-livro {
+    color: var(--roxo-claro);
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.livro-detalhado-info h3 {
+    font-size: 2rem;
+
+    color: var(--roxo);
+
+    margin: 12px 0 10px;
+}
+
+.livro-detalhado-info p {
+    color: var(--texto-claro);
+
+    margin-bottom: 15px;
+
+    font-size: 1rem;
+}
+
+.autora-livro {
+    font-weight: 700;
+
+    color: var(--roxo-claro) !important;
+}
+
+.informacoes-livro {
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    margin-top: 25px;
+
+    color: var(--roxo);
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   LIVROS ANTERIORES — CAPAS PADRONIZADAS
+===================================================== */
+
+.historico-livros {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.historico-card {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    padding: 25px;
+
+    background-color: white;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 20px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.historico-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 30px rgba(48, 36, 95, 0.10);
+}
+
+
+/* TAMANHO PADRÃO DAS CAPAS ANTERIORES */
+
+.capa-historico {
+    width: 130px;
+    height: 180px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    background-color: #eee9ff;
+}
+
+
+/* IMAGENS DAS CAPAS ANTERIORES */
+
+.capa-historico img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+}
+
+.historico-info span {
+    color: var(--roxo-claro);
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+}
+
+.historico-info h3 {
+    color: var(--roxo);
+
+    font-size: 1.25rem;
+
+    margin: 8px 0 10px;
+}
+
+.historico-info p {
+    color: var(--texto-claro);
+
+    font-size: 0.92rem;
+
+    margin-bottom: 15px;
+}
+
+.botao-leitura {
+    border: none;
+
+    background: transparent;
+
+    color: var(--roxo-claro);
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    padding: 0;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   FRASE FINAL
+===================================================== */
+
+.frase-final {
+    text-align: center;
+
+    background-color: var(--verde-claro);
+}
+
+.frase-final h2 {
+    color: var(--roxo);
+
+    font-size: clamp(2rem, 4vw, 3rem);
+
+    margin-bottom: 15px;
+}
+
+.frase-final p {
+    color: var(--texto-claro);
+
+    font-size: 1.1rem;
+}
+
+
+/* =====================================================
+   MODO ESCURO
+===================================================== */
+
+body.modo-escuro {
+    --creme: #151225;
+    --branco: #201b35;
+
+    --texto: #f5f2ff;
+    --texto-claro: #c9c3da;
+
+    --borda: #3a3452;
+
+    background-color: #151225;
+
+    color: #f5f2ff;
+}
+
+
+/* CABEÇALHO ESCURO */
+
+body.modo-escuro .cabecalho {
+    background-color: rgba(21, 18, 37, 0.96);
+
+    border-color: #302a47;
+}
+
+body.modo-escuro .logo-texto,
+body.modo-escuro .menu a {
+    color: #ffffff;
+}
+
+body.modo-escuro .menu a:hover {
+    color: var(--verde);
+}
+
+
+/* HERO ESCURO */
+
+body.modo-escuro .hero {
+    background:
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(87, 151, 124, 0.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #151225,
+            #211a3b
+        );
+}
+
+body.modo-escuro .hero h1,
+body.modo-escuro .titulo-secao h2,
+body.modo-escuro .encontros-texto h2 {
+    color: white;
+}
+
+
+/* SEÇÕES ESCURAS */
+
+body.modo-escuro .secao-destaque {
+    background-color: #1b1730;
+}
+
+body.modo-escuro .cartao,
+body.modo-escuro .livro,
+body.modo-escuro .livro-detalhado,
+body.modo-escuro .historico-card,
+body.modo-escuro .contato-item {
+    background-color: #201b35;
+
+    border-color: #3a3452;
+}
+
+body.modo-escuro .imagem-moldura {
+    background-color: #201b35;
+}
+
+body.modo-escuro .contato {
+    background-color: #172d27;
+}
+
+
+/* PÁGINA DE LEITURAS ESCURA */
+
+body.modo-escuro .pagina-titulo {
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(87, 151, 124, 0.18),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #151225,
+            #211a3b
+        );
+}
+
+body.modo-escuro .pagina-titulo h1 {
+    color: white;
+}
+
+body.modo-escuro .livro-detalhado-info h3,
+body.modo-escuro .historico-info h3,
+body.modo-escuro .frase-final h2 {
+    color: white;
+}
+
+body.modo-escuro .frase-final {
+    background-color: #172d27;
+}
+
+
+/* BOTÃO TEMA ESCURO */
+
+body.modo-escuro .botao-tema {
+    border-color: #ffffff;
+    color: white;
+}
+
+body.modo-escuro .botao-tema:hover {
+    background-color: white;
+    color: var(--roxo);
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE — TABLET
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .cabecalho-conteudo {
+        flex-wrap: wrap;
+        padding: 15px 0;
+    }
+
+    .logo-texto {
+        order: 1;
+    }
+
+    .botao-tema {
+        order: 2;
+        margin-left: auto;
+    }
+
+    .menu {
+        order: 3;
+
+        width: 100%;
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+
+        padding-bottom: 5px;
+
+        gap: 25px;
+    }
+
+
+    .hero-conteudo {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        text-align: center;
+    }
+
+    .hero-texto {
+        margin: 0 auto;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-botoes {
+        justify-content: center;
+    }
+
+    .hero-imagem {
+        max-width: 500px;
+
+        width: 100%;
+
+        margin: auto;
+    }
+
+
+    .cartoes {
+        grid-template-columns: 1fr;
+    }
+
+
+    .encontros-conteudo {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    .encontros-texto {
+        text-align: center;
+    }
+
+
+    .contato-cartoes {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* PÁGINA DE LEITURAS */
+
+    .livro-detalhado {
+        grid-template-columns: 220px 1fr;
+
+        gap: 30px;
+    }
+
+    .historico-livros {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE — CELULAR
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .cabecalho-conteudo {
+        min-height: auto;
+    }
+
+    .logo-texto {
+        font-size: 1.1rem;
+    }
+
+    .botao-tema {
+        font-size: 0.8rem;
+
+        padding: 8px 10px;
+    }
+
+
+    .hero {
+        padding: 65px 0;
+    }
+
+    .hero h1 {
+        font-size: 2.7rem;
+
+        letter-spacing: -1px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero-botoes {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .botao {
+        width: 100%;
+    }
+
+    .imagem-moldura {
+        padding: 12px;
+
+        border-radius: 20px;
+    }
+
+
+    .secao {
+        padding: 75px 0;
+    }
+
+    .titulo-secao {
+        margin-bottom: 35px;
+    }
+
+
+    /* CARTÕES DE LEITURA DA HOME */
+
+    .livros {
+        grid-template-columns: 1fr;
+    }
+
+    .livro {
+        gap: 18px;
+        padding: 20px;
+    }
+
+    .livro-capa {
+        width: 100px;
+        height: 135px;
+    }
+
+
+    /* PÁGINA DE LEITURAS */
+
+    .pagina-titulo {
+        padding: 70px 0 55px;
+    }
+
+    .pagina-titulo h1 {
+        font-size: 2.5rem;
+    }
+
+
+    /* LIVRO DO MÊS NO CELULAR */
+
+    .livro-detalhado {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        padding: 30px;
+
+        text-align: center;
+    }
+
+    .capa-grande {
+        width: 200px;
+        height: 270px;
+
+        margin: 0 auto;
+    }
+
+    .informacoes-livro {
+        justify-content: center;
+    }
+
+
+    /* LIVROS ANTERIORES NO CELULAR */
+
+    .historico-card {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .capa-historico {
+        width: 130px;
+        height: 180px;
+    }
+
+
+    .encontro-card {
+        padding: 30px 22px;
+    }
+
+    .rodape-conteudo {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+}
+
+.texto-sinopse {
+  text-align: justify;
+}
+
+/* =====================================================
+   MENU MOBILE
+===================================================== */
+
+.botao-menu {
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    font-size: 28px;
+
+    color: var(--texto);
+
+    cursor: pointer;
+
+    padding: 5px;
+
+    line-height: 1;
+}
+
+
+/* =====================================================
+   TABLETS E CELULARES
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .cabecalho-conteudo {
+        position: relative;
+    }
+
+
+    .botao-menu {
+        display: block;
+
+        order: 2;
+    }
+
+
+    .menu {
+        position: absolute;
+
+        top: calc(100% + 10px);
+
+        left: 0;
+        right: 0;
+
+        display: none;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        padding: 15px;
+
+        background-color: var(--branco);
+
+        border: 1px solid var(--borda);
+
+        border-radius: 18px;
+
+        box-shadow: var(--sombra);
+
+        z-index: 1000;
+    }
+
+
+    .menu.menu-aberto {
+        display: flex;
+    }
+
+
+    .menu a {
+        display: block;
+
+        width: 100%;
+
+        padding: 13px 15px;
+
+        border-radius: 10px;
+
+        text-align: left;
+    }
+
+
+    .menu a:hover {
+        background-color: var(--lilas);
+    }
+
+
+    .botao-tema {
+        order: 3;
+    }
+
+}
+
+
+/* =====================================================
+   CELULARES
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .container {
+        width: 92%;
+    }
+
+
+    .cabecalho {
+        padding: 15px 0;
+    }
+
+
+    .cabecalho-conteudo {
+        gap: 10px;
+    }
+
+
+    .logo-texto {
+        font-size: 20px;
+    }
+
+
+    .botao-menu {
+        font-size: 26px;
+    }
+
+
+    .botao-tema {
+        padding: 8px 10px;
+    }
+
+
+    #texto-tema {
+        display: none;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        padding: 70px 0;
+    }
+
+
+    .hero h1 {
+        font-size: 40px;
+        line-height: 1.1;
+    }
+
+
+    .hero p {
+        font-size: 16px;
+    }
+
+
+    /* BOTÕES */
+
+    .botoes {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+
+    .botoes a {
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    /* CARDS DE LIVROS */
+
+    .livros {
+        grid-template-columns: 1fr;
+    }
+
+
+    .livro {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
+    .livro-capa {
+        margin: 0 auto;
+    }
+
+
+    /* SEÇÕES */
+
+    .secao {
+        padding: 65px 0;
+    }
+
+
+    .titulo-secao h2 {
+        font-size: 30px;
+    }
+
+
+    /* LIVRO DO MÊS */
+
+    .livro-detalhado {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        padding: 25px;
+
+        text-align: center;
+    }
+
+
+    .capa-grande {
+        width: 200px;
+        height: 270px;
+
+        margin: 0 auto;
+    }
+
+
+    /* HISTÓRICO */
+
+    .historico-livros {
+        grid-template-columns: 1fr;
+    }
+
+
+    .historico-card {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
+    .capa-historico {
+        width: 130px;
+        height: 180px;
+    }
+
+
+    /* CONTATO */
+
+    .contato {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* RODAPÉ */
+
+    .rodape-conteudo {
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 10px;
+    }
+
+}
+
+
+
+
+/* =====================================================
+   ESTAMPA TELEFONE - SEÇÃO CONTATO
+===================================================== */
+
+#contato {
+    position: relative;
+}
+
+.estampa-telefone {
+    position: absolute;
+    width: 170px;
+    height: auto;
+    right: 25px;
+    bottom: 20px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#contato .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* =====================================================
+   ESTAMPAS NO CELULAR
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .estampa-books {
+        width: 105px;
+
+        left: -10px;
+
+        top: 20px;
+
+        opacity: 0.9;
+    }
+
+
+    .estampa-telefone {
+        width: 100px;
+
+        right: -5px;
+
+        bottom: 10px;
+
+        opacity: 0.9;
+    }
+
+}
+
+/* =====================================================
+   FUNDO COM PADRÃO DE TELEFONES SUAVE
+===================================================== */
+
+.contato {
+    /* Mude para o caminho correto onde a imagem está salva no seu projeto */
+    background-image: 
+        linear-gradient(rgba(223, 248, 237, 0.756), rgba(223, 248, 237, 0.92)), 
+        url('bg-telefone.png'); /* ou o nome correto do arquivo da imagem */
+    
+    background-repeat: repeat;
+    background-size: 300px; /* Controla o tamanho/escala dos telefones repetidos */
+    background-position: center;
+}
+
+body.modo-escuro .contato {
+    background-image: 
+        linear-gradient(rgba(23, 45, 39, 0.94), rgba(23, 45, 39, 0.94)), 
+        url('bg-telefone.png');
+}
+
+/* =====================================================
+   FRASE FINAL COM PADRÃO DE SELOS SUAVE
+===================================================== */
+
+.frase-final {
+    text-align: center;
+    position: relative;
+    
+    /* Substitua 'bg-clube.jpg' pelo caminho correto onde a imagem está salva no seu projeto */
+    background-image: 
+        linear-gradient(rgba(223, 248, 237, 0.788), rgba(223, 248, 237, 0.94)), 
+        url('bg-telefone.png');
+    
+    background-repeat: repeat;
+    background-size: 280px; /* Controla o tamanho/escala dos selos repetidos */
+    background-position: center;
+}
+
+body.modo-escuro .frase-final {
+    background-image: 
+        linear-gradient(rgba(23, 45, 39, 0.95), rgba(23, 45, 39, 0.95)), 
+        url('bg-telefone.png');
+}
+
+/* =====================================================
+   CARROSSEL DE FOTOS - ENCONTROS
+===================================================== */
+
+#encontros {
+    position: relative;
+}
+
+
+.carrossel {
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: 45px auto 0;
+}
+
+
+/* =====================================================
+   JANELA DO CARROSSEL
+===================================================== */
+
+.carrossel-janela {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    background-color: var(--lilas);
+
+    box-shadow: var(--sombra);
+}
+
+
+/* =====================================================
+   ÁREA DOS SLIDES
+===================================================== */
+
+.carrossel-fotos {
+    width: 100%;
+
+    height: 100%;
+
+    position: relative;
+}
+
+
+.slide {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.5s ease,
+        visibility 0.5s ease;
+}
+
+
+.slide.ativo {
+    opacity: 1;
+
+    visibility: visible;
+
+    z-index: 1;
+}
+
+
+.slide img {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* =====================================================
+   BOTÕES DE NAVEGAÇÃO
+===================================================== */
+
+.carrossel-botao {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 5;
+
+    width: 48px;
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background-color: rgba(255, 255, 255, 0.90);
+
+    color: var(--roxo);
+
+    font-size: 38px;
+
+    line-height: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+.carrossel-botao:hover {
+    background-color: var(--branco);
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+}
+
+
+.carrossel-anterior {
+    left: 20px;
+}
+
+
+.carrossel-proximo {
+    right: 20px;
+}
+
+
+/* =====================================================
+   INDICADORES
+===================================================== */
+
+.carrossel-indicadores {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 20px;
+}
+
+
+.indicador {
+    width: 9px;
+
+    height: 9px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background-color: #cfc9dc;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+.indicador.ativo {
+    background-color: var(--roxo);
+
+    transform: scale(1.35);
+}
+
+
+/* =====================================================
+   TEXTO ABAIXO DO CARROSSEL
+===================================================== */
+
+.texto-encontros {
+    max-width: 650px;
+
+    margin: 30px auto 0;
+
+    text-align: center;
+
+    color: var(--texto-claro);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .carrossel {
+        margin-top: 30px;
+    }
+
+
+    .carrossel-janela {
+        aspect-ratio: 4 / 5;
+
+        border-radius: 20px;
+    }
+
+
+    .carrossel-botao {
+        width: 40px;
+
+        height: 40px;
+
+        font-size: 30px;
+    }
+
+
+    .carrossel-anterior {
+        left: 12px;
+    }
+
+
+    .carrossel-proximo {
+        right: 12px;
+    }
+
+
+    .texto-encontros {
+        font-size: 15px;
+
+        padding: 0 10px;
+    }
+
+}
