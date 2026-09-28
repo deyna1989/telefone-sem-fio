@@ -376,3 +376,65 @@ if (carrossel) {
     );
 
 }
+
+// ==========================================
+// VISUALIZAÇÃO DA FOTO EM TELA CHEIA
+// ==========================================
+
+const visualizadorFoto = document.getElementById("visualizador-foto");
+const fotoAmpliada = document.getElementById("foto-ampliada");
+const fecharVisualizador = document.getElementById("fechar-visualizador");
+
+const fotosCarrossel = document.querySelectorAll("#carrossel-encontros .slide img");
+
+fotosCarrossel.forEach(function (foto) {
+
+    foto.addEventListener("click", function () {
+
+        fotoAmpliada.src = foto.src;
+        fotoAmpliada.alt = foto.alt;
+
+        visualizadorFoto.classList.add("aberto");
+
+        document.body.style.overflow = "hidden";
+    });
+
+});
+
+
+// Fechar clicando no X
+
+fecharVisualizador.addEventListener("click", function () {
+
+    visualizadorFoto.classList.remove("aberto");
+
+    document.body.style.overflow = "";
+});
+
+
+// Fechar clicando fora da foto
+
+visualizadorFoto.addEventListener("click", function (evento) {
+
+    if (evento.target === visualizadorFoto) {
+
+        visualizadorFoto.classList.remove("aberto");
+
+        document.body.style.overflow = "";
+    }
+
+});
+
+
+// Fechar apertando ESC no computador
+
+document.addEventListener("keydown", function (evento) {
+
+    if (evento.key === "Escape") {
+
+        visualizadorFoto.classList.remove("aberto");
+
+        document.body.style.overflow = "";
+    }
+
+});
